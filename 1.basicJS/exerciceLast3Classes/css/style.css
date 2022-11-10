@@ -1,0 +1,19 @@
+body {
+  
+    margin: 0;
+    box-shadow: none;
+    background-color: #e6d0d0;
+}
+
+h1{
+    text-align: center;
+    color: rgb(102, 255, 0);
+    background-color: black;
+    padding: 10%;
+}
+
+.results{
+    border-right: green;
+    color: red;
+    font-size: larger;
+}
