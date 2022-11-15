@@ -1,15 +1,19 @@
-//IIFE => Immediately invoked function expression
+//Functions that return objects
 
-(function(age, weight, height){
-    const surNamee = 'Viana'
-    function createName(namee){
-        return namee + ' ' + surNamee
+//When a function is inside the object, we call this function of method
+
+
+//Método dentro do objeto abaixo:
+function createPerson(namee, surName){
+    return {
+        namee, surName,
+       // speak: function(subject){
+        speak(subject){
+            return `${namee} is talking about ${subject}`
+        }
+        //this make references the object that called it => this vai se referir a quem chamar o objeto!
     }
-
-    function speakName(){
-        console.log(createName('Thiago'))
-    }
-
-    speakName()
-    console.log(age, weight, height)
-})(38, 90, 1.84)
+}
+const person1 = createPerson('Thiago', 'Viana')
+console.log(person1.speak('Your MERN Project...'))
+console.log(person1.namee)
