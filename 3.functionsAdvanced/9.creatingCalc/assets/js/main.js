@@ -12,12 +12,14 @@ function createCalc() {
             this.display.addEventListener('keypress', e => {
             if (e.keyCode === 13){
                 this.executeAccount()
+                
             }
             })
         },
 
         clearDisplay() {
             this.display.value = ''
+
         },
 
         deleteOneCharacterToLeft() {
@@ -28,13 +30,15 @@ function createCalc() {
 
             try {
                 account = eval(account)
-
+               
                 if (!account) {
                     alert('Invalid Account')
                     return;
                 }
 
                 this.display.value = String(account)
+                this.display.focus()
+                
             } catch (e) {
                 alert('Invalid Account')
                 return;
@@ -53,6 +57,7 @@ function createCalc() {
 
                 if (elementClicked.classList.contains('btn-num')) {
                     this.btnToDisplay(elementClicked.innerText);
+                    this.display.focus()
                 }
                 if (elementClicked.classList.contains('btn-clear')) {
                     this.clearDisplay()
