@@ -11,7 +11,12 @@ function allFunctions(){
    sayHi()
    speak()
    run()
-   cry()
+   cry(
+
+
+
+      v. cv vvc, 
+   )
 }
 
 allFunctions()
