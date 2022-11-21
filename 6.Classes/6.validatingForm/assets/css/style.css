@@ -14,15 +14,15 @@ body {
   padding: 5%;
   background: var(--primary-color);
   font-family: 'Open sans', sans-serif;
-  font-size: 1.1em;
-  line-height: 1.5em;
+  font-size: 1em;
+  line-height: 1.1em;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 540px;
   margin: 50px auto;
   background: #fff;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
 }
 
@@ -30,11 +30,11 @@ form input, form label, form button {
   display: block;
   width: 100%;
   margin-bottom: 10px;
-}
+ }
 
 form input {
-  font-size: 24px;
-  height: 50px;
+  font-size: 18px;
+  height: 30px;
   padding: 0 20px;
 }
 
@@ -55,4 +55,21 @@ form button {
 
 form button:hover {
   background: var(--primary-color-darker);
+}
+h1 {
+  text-align: center;
+}
+
+li {
+  font-size: small;
+}
+
+.error-text {
+  color: red;
+  font-size: 18px;
+
+}
+
+label {
+  margin-top: 20px;
 }

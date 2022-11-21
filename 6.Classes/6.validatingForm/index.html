@@ -5,40 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tvm Template</title>
+    <title>Form Contact Customer</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/main.js" defer></script>
+    <script src="./assets/js/validateCPF.js" defer></script>
 </head>
 
 <body>
 
     <section class="container">
-        <h1>Lorem ipsum dolor sit amet</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Repellendus nisi explicabo saepe voluptatibus consequuntur et corporis
-            maxime quos, doloribus vitae voluptatum quisquam necessitatibus
-            pariatur veritatis exercitationem beatae officiis suscipit Ea!
-        </p>
+        <h1>Form Contact</h1>
+       <ol>
+        <li>No field can be empty</li>
+        <li>Fild user can be type only letter and numbers</li>
+        <li>User field should have between 3 and 12 characters</li>
+        <li>Password should have between 6 and 12 characters</li>
+        
+        </ol>
 
+<form action="" class="form">
+<label>Name</label><input class="name validation" type="text" value="Thiago">
+<label>Surname</label><input class="surname validation" type="text" value="Viana">
+<label>CPF</label><input class="cpf validation" type="text"  value="415.701.260-70">
+<label>User</label><input class="user validation" type="text" value="tvm">
+<label>Password</label><input class="pass validation" type="password" value="123456">
+<label>Retype Password</label><input class="retype_pass validation" type="password" value="123456">
 
-
-
-
-
-
-
-
-        <!--
-        <form action="">
-            <label for="input1">label1</label><input type="text" id="input_text1">
-            <label for="input1">label2</label><input type="password" id="input_text2">
-            <label for="input1">label3</label><input type="number" id="input_text3">
-            <label for="input1">label4</label><input type="email" id="input_text4">
-            <button>Send</button>
+<button class="btn_send" type="submit">Send</button>
 
        </form> 
-       -->
     </section>
 
 </body>
