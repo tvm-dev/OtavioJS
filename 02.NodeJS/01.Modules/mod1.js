@@ -1,9 +1,16 @@
-// const namee = 'Thiago';
-// const surName = 'Viana';
+class Person {
+    constructor(name) {
+        this.name = name;
+        this.surName = surName;
+  }
+}
 
-// const speakName = () => namee + ' ' + surName;
+const name = 'tvm'
+const surName = 'viana'
+//For export one by one resources:
+exports.name = name;
+exports.anyThings = 'any thing...'
+module.exports.surName = surName;
 
-// exports.namee = namee;
-// exports.surName = surName
-// exports.speakName = speakName
-
+//For export all items together:
+module.exports = { name, surName, Person }
