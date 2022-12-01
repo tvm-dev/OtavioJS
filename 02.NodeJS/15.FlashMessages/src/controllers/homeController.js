@@ -17,8 +17,9 @@ exports.homePage = (req, res) => {
     // req.flash('info', 'My message info')
     // req.flash('error', 'My message error')
     // req.flash('success', 'My message success')
+    
     //Restore flash messages:
-    console.log(req.flash('info'), req.flash('error'), req.flash('success'))
+    //console.log(req.flash('info'), req.flash('error'), req.flash('success'))
     res.render('index')
     return 
 }
