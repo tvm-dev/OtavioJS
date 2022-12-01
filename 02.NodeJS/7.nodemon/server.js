@@ -5,7 +5,7 @@ server.get('/', (req, res) =>{
     res.send(`
         <form action="/" method="post">
         Name:<input type="text" name="name">
-        <button>Send Now 2</button>
+        <button>Send Now</button>
         </form>
 
     `)
@@ -22,5 +22,5 @@ server.post('/', (req, res) => {
 
 
 server.listen(3000, () => {
-    console.log('Server running on port 3000, at adreess http://localhost:3000')
+    console.log('Server running on port 3000, at address http://localhost:3000')
 })
