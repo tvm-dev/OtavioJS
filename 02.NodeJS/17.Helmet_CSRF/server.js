@@ -19,6 +19,7 @@ const path = require('path')
 const helmet = require('helmet')
 const csrf = require('csurf')
 const { globalMiddleware, checkCSRFerror, csrfMiddleware } = require('./src/middlewares/middleware')
+const { json } = require('express')
 //const { appendFile } = require('fs')
 
 //Using helmet:
@@ -26,6 +27,10 @@ server.use(helmet())
 
 //Get infos from body document:
 server.use(express.urlencoded({ extended: true }))
+
+//Insert datas via form using Json:
+server.use(json())
+
 //Static Content Files:
 server.use(express.static(path.resolve(__dirname, 'public')))
 
@@ -53,7 +58,7 @@ server.use(csrf())
 //Using Global Middleware at all requests:
 server.use(globalMiddleware)
 server.use(checkCSRFerror)
-server.use(csrfMiddleware)
+server.use(csrfMiddleware )
 
 //Using user Middleware at all requests:
 //server.use(userMiddleware)
