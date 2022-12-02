@@ -1,8 +1,6 @@
 exports.globalMiddleware = (req, res, next) => {
-    // console.log('')
-    // console.log('Pass at Global Middleware...')
-    // console.log('')
-    res.locals.localVariableTVM = 'This is a local variable.'
+    res.locals.errors = req.flash('errors')
+    res.locals.success = req.flash('success')
     next()
 }
 
@@ -10,6 +8,8 @@ exports.globalMiddleware = (req, res, next) => {
 exports.checkCSRFerror = (err, req, res, next) => {
     if (err) {
         return res.render('404')
+        console.log('Error tvm')
+        next()
     }
 };
   
