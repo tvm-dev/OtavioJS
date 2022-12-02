@@ -1,0 +1,11 @@
+<% Flow Control, like (if, for, etc) %>
+<%= Print characters using escapes, print full writed  %>
+<%- Print Flow using html tags %>
+<%# Comments %>
+<% include('path/files') %>
+
+<% if (anything) { %>
+<% show anything %>
+<% } else { %>
+<% show more things %>
+<% } %>

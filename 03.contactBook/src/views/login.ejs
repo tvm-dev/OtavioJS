@@ -1,0 +1,67 @@
+<%- include('includes/header'); %>
+  <%- include('includes/navbar'); %>
+
+
+    <div class="container">
+      <div class="col-lg-2"></div>
+
+      <div class="col-lg-8 my-3">
+
+        
+        
+
+        <div class="text-center row">
+          <div class="col">
+            <h4>Sign in:</h4>
+            <p>If you already have your account, make login below:</p>
+           <form action="login/login">
+            <input type="hidden" name="_csrf" value=<% csrfToken %>>
+              <div class="mb-3">
+                <input type="email" class="form-control" name="email" placeholder="Type your e-mail here">
+              </div>
+
+              <div class="mb-3">
+                <input type="password" class="form-control" name="password" placeholder="Type Password here">
+              </div>
+
+              <button type="submit" class="btn btn-primary">Login</button>
+ 
+            </form>
+              <hr>
+            <br><h1><b>Or</b></h1><br>
+            <hr>
+            <div class="text-center row">
+              <div class="col">
+                <h4>Make your registration:</h4>
+                <p>If you don't have your account, make your registration below:</p>
+
+                <form action="login/register" method="post">
+                  <input type="hidden" name="_csrf" value=<% csrfToken %>>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" name="email" placeholder="Type your e-mail here">
+                  </div>
+    
+                  <div class="mb-3">
+                    <input type="password" class="form-control" name="password" placeholder="Type Password here">
+                  </div>
+    
+                  <button type="submit" class="btn btn-success">Create My Account</button>
+     
+                </form>
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-2"></div>
+
+
+        </div>
+
+
+        <%- include('includes/footer') %>
