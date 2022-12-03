@@ -64,5 +64,17 @@ Contact.prototype.cleanUp = function () {
     };
 };
 
+//Editing contacts:
+Contact.prototype.edit = async function (id) {
+    if (typeof id !== 'string') return;
+    this.validated()
+
+    if (this.errors.length > 0) return;
+    //If all passed on validations, then update now:
+    this.contact = await ContactModel.findByIdAndUpdate(id, this.body, { new: true })
+
+}
+
+
 
 module.exports = Contact;
