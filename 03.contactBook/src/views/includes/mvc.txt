@@ -1,0 +1,5 @@
+O Padrão MVC (Model-View-Controller)
+
+M => Model => make access to databases
+V => views => are pages that users see!
+C => contain the business rules from app!
