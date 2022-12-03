@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
+const bcryptjs = require('bcryptjs')
 
 const LoginSchema = new mongoose.Schema({
     email: { type: String, required: true },
@@ -24,14 +25,27 @@ class Login {
         this.validateFormFields()
         //Checking if there are erros at array errors[]:
         if (this.errors.length > 0) return;
-        //If everthing it's Ok, register will be done in DB:
+
+        await this.userExistInBD()
+
+        if (this.errors.length > 0) return;
+
+        const salt = bcryptjs.genSaltSync() // ???
+        this.body.password = bcryptjs.hashSync(this.body.password, salt)
 
         try {
+            //If everthing it's Ok, register will be done in DB:
             this.user = await LoginModel.create(this.body)
 
         } catch (error) {
             console.log(error)
         }
+    }
+
+    async userExistInBD() {
+        const user = await LoginModel.findOne({ email: this.body.email })
+        if (user) this.errors.push('User already registered.')
+
     }
 
     validateFormFields() {
