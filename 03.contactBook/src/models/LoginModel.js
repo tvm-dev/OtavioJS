@@ -20,6 +20,29 @@ class Login {
         this.errors = []
         this.user = null
     }
+    //===================================================================
+    //Login user method:
+    async login(){
+        this.validateFormFields()
+        //Checking if there are erros at array errors[]:
+        if (this.errors.length > 0) return;
+        this.user = await LoginModel.findOne({ email: this.body.email })
+
+        //Checking if user exists:
+        if (!this.user) {
+            this.errors.push('User do not exist!')
+            return
+        }
+
+        //validating user pass with bcryptJS:
+        if (!bcryptjs.compareSync(this.body.password, this.user.password)) {
+            this.errors.push('Invalid Password.')
+            this.user = null
+            return
+        }
+        
+        
+    }
 
     async registerUser() {
         this.validateFormFields()
@@ -33,18 +56,15 @@ class Login {
         const salt = bcryptjs.genSaltSync() // ???
         this.body.password = bcryptjs.hashSync(this.body.password, salt)
 
-        try {
-            //If everthing it's Ok, register will be done in DB:
-            this.user = await LoginModel.create(this.body)
 
-        } catch (error) {
-            console.log(error)
-        }
+        //If everthing it's Ok, register will be done in DB:
+        this.user = await LoginModel.create(this.body)
+
     }
 
     async userExistInBD() {
-        const user = await LoginModel.findOne({ email: this.body.email })
-        if (user) this.errors.push('User already registered.')
+        this.user = await LoginModel.findOne({ email: this.body.email })
+        if (this.user) this.errors.push('User already registered.')
 
     }
 
