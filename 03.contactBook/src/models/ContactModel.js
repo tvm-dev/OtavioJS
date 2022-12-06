@@ -23,12 +23,12 @@ function Contact(body) {
     this.contact = null;
 }
 
-//Loading userContact using ID:
-Contact.findByID = async function (id) {
-    if (typeof id !== 'string') return
-    const user = await ContactModel.findById(id)
-    return user
-}
+// //Loading userContact using ID:
+// Contact.findByID = async function (id) {
+//     if (typeof id !== 'string') return
+//     const user = await ContactModel.findById(id)
+//     return user
+// }
 
 
 
@@ -74,6 +74,25 @@ Contact.prototype.edit = async function (id) {
     this.contact = await ContactModel.findByIdAndUpdate(id, this.body, { new: true })
 
 }
+
+//Loading userContact at homePage, using static methods:
+Contact.findByID = async function (id) {
+    if (typeof id !== 'string') return
+    const contact = await ContactModel.findById(id)
+    return contact
+}
+Contact.findContacts = async   () => {
+    const contacts = await ContactModel.find()
+    .sort({ createdAt: -1 }) //Listing contacts using decrease order!
+    return contacts
+}
+Contact.delete = async (id) => {
+    if (typeof id !== 'string') return
+    const contact = await ContactModel.findOneAndDelete(id)
+    return contact
+}
+
+
 
 
 

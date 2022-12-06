@@ -23,7 +23,6 @@ exports.register = async (req, res) => {
 
         req.flash('success', 'Your contact was registered successfully.')
         req.session.save(() => res.redirect(`/contact/${contact.contact._id}`))
-        
         return;
 
     } catch (e) {
@@ -51,7 +50,7 @@ exports.edit = async function (req, res) {
         if (contact.errors.length > 0) {
             req.flash('errors', contact.errors)
             //console.log(body.params)
-           // req.session.save(() => res.redirect(`/contact/index/${contact.contact.id}`))
+            // req.session.save(() => res.redirect(`/contact/index/${contact.contact.id}`))
             req.session.save(() => res.redirect('back'))
             return
         }
@@ -64,4 +63,15 @@ exports.edit = async function (req, res) {
         console.log(e)
         res.render('404')
     }
+
+}
+exports.delete = async function (req, res) {
+    if (!req.params.id) return res.render('404')
+
+    const contact = await Contact.delete(req.params.id)
+    if (!contact) return res.render('404')
+
+    req.flash('success', 'Your contact was deleted successfully.')
+    req.session.save(() => res.redirect('back'))
+    return;
 }

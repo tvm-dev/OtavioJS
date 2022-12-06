@@ -7,32 +7,46 @@
 
       <div class="col-lg-8 my-3">
 
-        <h1 class="text-center">Your Personal Contact Book Online</h1>
-        <p class="text-center lead">All your contacts saved in one place!</p>
+        <h3 class="text-center">All your contacts saved in one place!</h3 >
 
         <%- include('includes/messages') %>
 
-
+          <% if (contacts.length > 0) { %>
+        
         <div class="responsible-table">
-          <thead>
-            <table class="table my-3">
+          <table class="table my-5 table table-striped">
+                         
+            <thead>
               <tr>
-                <td>Thiago</td>
-                <td>Viana</td>
-                <td>+55 (11) 98749-5842</td>
-                <td>senadorx@gmail.com</td>
+                
+                <th scope="col">Who</th>
+                <th scope="col">Surname</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Del</th>
               </tr>
+            </thead>
+              <% contacts.forEach(contact => { %>
+                <tr>
 
-              <tr>
-                <td>Emily</td>
-                <td>Menezes</td>
-                <td>+55 (11) 97857-1247</td>
-                <td>emily.cmenezes@gmail.com</td>
-              </tr>
+                  
+                  <td><%= contact.fname %></td>
+                  <td><%= contact.lname %></td>
+                  <td><%= contact.email %></td>
+                  <td><%= contact.phone %></td>
+                  <td><a href="/contact/<%= contact._id %>">Edit</a></td>
+                  <td><a class="text-danger" href="/contact/delete/<%= contact._id %>">Del</a></td>
+                </tr>
+                <% }); %>
 
-            
             </table>
         </div>
+        <% } else { %>
+          <hr>
+          <p class="text-center lead text-danger">There is no record in your contacts!</p>
+          <hr>
+        <% } %>
       </div>
 
       <div class="col-lg-2"></div>
