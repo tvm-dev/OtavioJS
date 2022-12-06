@@ -88,12 +88,8 @@ Contact.findContacts = async   () => {
 }
 Contact.delete = async (id) => {
     if (typeof id !== 'string') return
-    const contact = await ContactModel.findOneAndDelete(id)
+    const contact = await ContactModel.findOneAndDelete({_id: id})
     return contact
 }
-
-
-
-
 
 module.exports = Contact;

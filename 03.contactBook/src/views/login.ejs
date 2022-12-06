@@ -14,7 +14,11 @@
             <div class="col">
               <h4>Sign in:</h4>
               <p>If you already have your account, make login below:</p>
-              <form action="login/login" method="POST">
+             
+             
+              <form class="formLogin" action="login/login" method="POST">
+             
+             
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <div class="mb-3">
                   <input type="email" class="form-control" name="email" placeholder="Type your e-mail here">
@@ -36,7 +40,9 @@
                   <h4>Make your registration:</h4>
                   <p>If you don't have your account, make your registration below:</p>
 
-                  <form action="login/register" method="POST">
+                  <form class="formRegister" action="login/register" method="POST">
+                   
+                   
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <div class="mb-3">
                       <input type="email" class="form-control" name="email" placeholder="Type your e-mail here">
