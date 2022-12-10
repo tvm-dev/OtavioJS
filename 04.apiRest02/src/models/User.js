@@ -11,7 +11,7 @@ export default class User extends Model {
 				validate: {
 					len: {
 						args: [3, 255],
-						msg: 'Name need have between 3 and 255 characters!'
+						msg: 'Name need have between 3 and 255 chars!'
 					},
 				},
 			},
@@ -38,8 +38,8 @@ export default class User extends Model {
 				defaultValue: '',
 				validate: {
 					len: {
-						args: [6, 50],
-						msg: 'Password need have between 3 and 255 characters!'
+						args: [3, 50],
+						msg: 'Password need have between 3 and 255 chars!'
 					},
 				},
 			},
@@ -52,6 +52,13 @@ export default class User extends Model {
 				user.password_hash = await bcryptjs.hash(user.password_hash, 8);
 			}
 		});
+
 		return this;
+
+	}
+
+	// Check user pass using bcryptjs:
+	passwordIsValid(password) {
+		return bcryptjs.compare(password, this.password_hash);
 	}
 }
