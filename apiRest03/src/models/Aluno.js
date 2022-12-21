@@ -70,7 +70,8 @@ export default class Alunos extends Model {
     return this;
   }
 
-  // static associate(models) {
-  //   this.hasOne(models.Photo, { foreignKey: 'aluno_id' });
-  // }
+  static associate(models) {
+    this.hasMany(models.Photo, { foreignKey: 'aluno_id' });
+    // this.hasOne(models.Photo, { foreignKey: 'aluno_id' });
+  }
 }
