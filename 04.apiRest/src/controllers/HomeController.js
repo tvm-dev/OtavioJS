@@ -1,18 +1,6 @@
-import Student from '../models/Student';
-
-class HomeController {
+class Homecontroller {
   async index(req, res) {
-    const newStudent = await Student.create({
-      name: 'Thiago',
-      surname: 'Viana',
-      email: 'senadorx@gmail.com',
-      age: 38,
-      weight: 90,
-      height: 1.84,
-
-    });
-    res.json(newStudent);
+    res.json('Index');
   }
 }
-
-export default new HomeController();
+export default new Homecontroller();
