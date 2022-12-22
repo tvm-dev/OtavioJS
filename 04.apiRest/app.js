@@ -15,7 +15,11 @@ import tokenRoutes from './src/routes/tokenRoutes';
 import alunoRoutes from './src/routes/alunoRoutes';
 import photoRoutes from './src/routes/photoRoutes';
 
-const whiteList = ['http://localhost:3000'];
+const whiteList = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'http://localhost:3001/alunos',
+];
 const corsOptions = {
   origin: function (origin, callback) {
     if (whiteList.indexOf !== -1 || !origin) {
