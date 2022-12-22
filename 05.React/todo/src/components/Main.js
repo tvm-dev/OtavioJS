@@ -11,7 +11,7 @@ export default class Main extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { tasks } = this.state;
+    const { tasks, index } = this.state;
     let { newTask } = this.state;
     newTask = newTask.trim();
 
@@ -19,19 +19,34 @@ export default class Main extends Component {
 
     const newTasks = [...tasks];
 
-    this.setState({
-      tasks: [...newTasks, newTask],
-    });
+    if (index === -1) {
+      this.setState({
+        tasks: [...newTasks, newTask],
+        newTask: '',
+
+      });
+    } else {
+      newTasks[index] = newTask;
+
+      this.setState({
+        tasks: [...newTasks],
+        index: -1,
+      });
+    }
   };
 
-  inputChanged = (e) => {
+  handleChange = (e) => {
     this.setState({
       newTask: e.target.value,
     });
   };
 
   handleEdit = (e, index) => {
-    console.log('Edit', index);
+    const { tasks } = this.state;
+    this.setState({
+      index,
+      newTask: tasks[index],
+    });
   };
 
   handleDelete = (e, index) => {
@@ -51,7 +66,7 @@ export default class Main extends Component {
         <h1>TODO List</h1>
         <form onSubmit={this.handleSubmit} action="#" className="form">
           <input
-            onChange={this.inputChanged}
+            onChange={this.handleChange}
             type="text"
             value={newTask}
           />
