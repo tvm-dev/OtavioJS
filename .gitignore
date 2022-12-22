@@ -1,9 +1,6 @@
 tests
 .vscode
-node-modules
 node_modules
 .env
 env
-venv
-testes
-.DS_Store
+
