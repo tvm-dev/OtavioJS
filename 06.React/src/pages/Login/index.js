@@ -13,6 +13,9 @@ export default function Login() {
       <Paragraph>Any text here</Paragraph>
       <br />
       <a href="https://google.com">Link</a>
+      <br />
+      <br />
+      <button type="button">Send</button>
     </Container>
   );
 }
