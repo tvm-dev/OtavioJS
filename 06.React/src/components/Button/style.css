@@ -1,0 +1,21 @@
+.btn {
+  background-color: #3498db;
+  height: 60px;
+  width: 200px;
+  font-size: large;
+  font-family: sans-serif;
+  color: aliceblue;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #041018;
+  height: 60px;
+  width: 200px;
+  font-size: large;
+  font-family: sans-serif;
+  color: rgb(247, 238, 113);
+  border: none;
+  transition: 900ms;
+
+}
